@@ -1,3 +1,5 @@
+import { useSession, signIn } from "next-auth/react";
+
 import ExternalAuth from "./_externalAuth";
 import Header from './_header';
 
@@ -30,7 +32,7 @@ export default function Auth(props: AuthProps) {
                         placeholder="password"
                     />
 
-                    <button className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700">{props.auth_text}</button>
+                    <button onClick={() => signIn()} className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700">{props.auth_text}</button>
                     <span className="text-gray-700">Don't have an account ? {props.dont_account_text}</span>
                 </div>
 
