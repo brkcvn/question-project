@@ -1,13 +1,22 @@
 import { useSession } from "next-auth/react";
 
 import Lists from "@/components/_lists";
+import SignIn from '@/components/_signIn';
 
 export default function List() {
-    const { data: session, status } = useSession();
+    const { data, status } = useSession();
 
-    return (
-        <div className="max-w-2xl m-auto">
-            <List />
-        </div>
-    )
+    if (status === 'authenticated') {
+        return (
+            <div className="max-w-2xl m-auto">
+                <Lists />
+            </div>
+        )
+    } else {
+        return (
+            <div className="max-w-2xl m-auto">
+                <SignIn />
+            </div>
+        )
+    }
 }
