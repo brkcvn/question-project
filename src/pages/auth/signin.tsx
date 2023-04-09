@@ -3,6 +3,10 @@ import { getCsrfToken } from "next-auth/react";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from 'next/link';
+import ExternalAuth from '../../components/_externalAuth';
+import React from "react";
+import { useRouter } from 'next/router'
+
 
 interface Props {
     email: string,
@@ -15,6 +19,8 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
         password: ''
     });
 
+    const router = useRouter();
+
     async function handleSubmit(event: any) {
         event.preventDefault();
 
@@ -24,7 +30,9 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
             redirect: false
         });
 
-        console.log(res)
+        console.log(res);
+
+        router.push("/");s
     }
     return (
         <div className="max-w-md m-auto my-12 p-8 border shadow-lg space-y-6">
@@ -63,7 +71,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700"
+                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700 mb-5"
                     >
                         Sign in
                     </button>
@@ -73,6 +81,8 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                     </span>
                 </form>
             </div>
+
+            <ExternalAuth />
         </div>
 
     )

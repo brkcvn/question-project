@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProiver from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axios from 'axios';
 
 export const authOptions = {
     providers: [

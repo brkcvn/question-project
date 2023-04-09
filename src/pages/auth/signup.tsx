@@ -9,7 +9,7 @@ interface Props {
     password: string
 }
 
-export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function SignUp({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const [info, setInfo] = useState<Props>({
         email: '',
         password: ''
@@ -63,12 +63,12 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700"
+                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700 mb-5"
                     >
                         Sign Up
                     </button>
                     <span className="text-gray-700">Don't have an account ?
-                        <Link href="signup">Sign Up</Link>
+                        <Link href="signin">Sign In</Link>
                     </span>
                 </form>
             </div>
