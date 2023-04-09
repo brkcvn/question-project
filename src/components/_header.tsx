@@ -1,4 +1,5 @@
 import { useSession, signOut } from "next-auth/react";
+import Link from 'next/link';
 
 export default function Header() {
     const { data: session, status } = useSession();
@@ -7,9 +8,12 @@ export default function Header() {
         return (
             <div className="container flex items-center justify-between">
                 <div className="w-12 h-8 flex justify-center bg-gray-500 rounded-lg shadow-lg">
-                    <span className="material-symbols-outlined text-white mt-1">
-                        account_circle
-                    </span>
+                    <Link href="/question">
+                        <span className="material-symbols-outlined text-white mt-1">
+                            account_circle
+                        </span>
+                    </Link>
+
                 </div>
 
                 <h1 className="text-2xl text-center font-bold my-3">Logo</h1>

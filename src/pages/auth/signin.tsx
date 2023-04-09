@@ -33,7 +33,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
             if (res?.status === 200) {
                 router.push({
-                    pathname: '/'
+                    pathname: '/list'
                 })
             }
         }

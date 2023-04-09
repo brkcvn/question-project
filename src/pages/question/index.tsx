@@ -1,7 +1,6 @@
 import { useSession } from 'next-auth/react';
 
 import Question from "@/components/_question";
-import SignIn from '@/components/_signIn';
 
 export default function Ask() {
     const { data, status } = useSession();
@@ -15,7 +14,7 @@ export default function Ask() {
     } else {
         return (
             <div className="max-w-2xl m-auto">
-                <SignIn />
+                Sign Out
             </div>
         )
     }
