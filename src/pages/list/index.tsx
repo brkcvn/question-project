@@ -1,12 +1,11 @@
 import { useSession } from "next-auth/react";
 import { useAppSelector } from '../../hooks';
 import Main from "@/components/_main";
+import Lists from "@/components/_lists";
 
 interface ActionProps {
     state?: any
 }
-
-import Lists from "@/components/_lists";
 
 export default function List({ state }: ActionProps) {
     state = useAppSelector((state) => state);
