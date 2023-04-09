@@ -1,14 +1,14 @@
 import Main from '@/components/_main';
-import Question from '@/components/_question';
-import Lists from '@/components/_lists';
-import SignIn from '@/components/_signIn';
-import SignUp from '@/components/_signUp';
+import Header from '@/components/_header';
 
 export default function Home() {
-  return (
-    <div className="max-w-2xl m-auto">
-      <h1 className="text-2xl text-center font-bold my-3">Logo</h1>
-      <SignIn />
-    </div>
-  )
+    return (
+        <div className="max-w-5xl m-auto">
+            <Header />
+
+            <div className="max-w-2xl m-auto">
+                <Main />
+            </div>
+        </div>
+    )
 }
