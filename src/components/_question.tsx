@@ -1,6 +1,10 @@
+import Header from './_header';
+
 export default function Question() {
     return (
         <div className="space-y-8">
+            <Header />
+            
             <div className="block space-y-3">
                 <label htmlFor="ask" className="text-gray-500 font-bold">Ask a question</label>
                 <input

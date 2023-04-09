@@ -1,19 +1,13 @@
-import Head from 'next/head';
+import { useSession } from "next-auth/react";
 
 import Lists from "@/components/_lists";
-import AuthHeader from "@/components/_isAuthHeader";
 
 export default function List() {
-    return (
-        <div className="container">
-            <Head>
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-            </Head>
-            <AuthHeader />
+    const { data: session, status } = useSession();
 
-            <div className="max-w-2xl m-auto">
-                <Lists />
-            </div>
+    return (
+        <div className="max-w-2xl m-auto">
+            <List />
         </div>
     )
 }
