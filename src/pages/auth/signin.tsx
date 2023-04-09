@@ -24,15 +24,19 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
     async function handleSubmit(event: any) {
         event.preventDefault();
 
-        const res = await signIn('credentials', {
-            email: info.email,
-            password: info.password,
-            redirect: false
-        });
+        if (info.email !== '' && info.password !== '') {
+            const res = await signIn('credentials', {
+                email: info.email,
+                password: info.password,
+                redirect: false
+            });
 
-        console.log(res);
-
-        router.push("/");s
+            if (res?.status === 200) {
+                router.push({
+                    pathname: '/'
+                })
+            }
+        }
     }
     return (
         <div className="max-w-md m-auto my-12 p-8 border shadow-lg space-y-6">
@@ -55,6 +59,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                             setInfo({ ...info, email: target.value })
                         }
                         className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                        required
                         placeholder="email"
                     />
 
@@ -66,6 +71,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                             setInfo({ ...info, password: target.value })
                         }
                         className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                        required
                         placeholder="password"
                     />
 
@@ -75,7 +81,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                     >
                         Sign in
                     </button>
-                    
+
                     <span className="text-gray-700">Don't have an account ?
                         <Link href="signup">Sign Up</Link>
                     </span>
