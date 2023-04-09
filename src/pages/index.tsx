@@ -1,5 +1,4 @@
 import { useSession } from 'next-auth/react';
-
 import Main from '@/components/_main';
 import Lists from '@/components/_lists';
 
