@@ -3,7 +3,7 @@ import Header from '@/components/_header';
 
 export default function Home() {
     return (
-        <div className="max-w-5xl m-auto">
+        <div className="container">
             <Header />
 
             <div className="max-w-2xl m-auto">
