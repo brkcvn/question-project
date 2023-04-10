@@ -7,11 +7,12 @@ import { useSession } from "next-auth/react";
 import Main from "@/components/_main";
 import Header from "@/components/_header";
 
+//prisma/client
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
-    const items = await prisma.contact.findMany();
+    const items = await prisma.question.findMany();
     return {
         props: {
             initialContacts: items
@@ -24,7 +25,7 @@ export default function List({ initialContacts }: any) {
     const [list] = useState(initialContacts);
     let items;
 
-    if (list !== 'undefined') {
+    if (list !== undefined) {
         items = list.map(function (item: any, i: Key | null | undefined) {
             return (
                 <Link

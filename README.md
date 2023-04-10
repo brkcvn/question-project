@@ -18,6 +18,13 @@
 npm install npm@latest -g
 ```
 
+```bash
+npx prisma init
+npx prisma migrate dev
+npx prisma migrate dev --preview-feature
+npx prisma studio
+```
+
 ## Installation
 - Clone the repo
 ```bash

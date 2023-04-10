@@ -12,10 +12,11 @@ interface FormProps {
     answer: string|number
 }
 
-async function saveContact(contact: any) {
-    const response = await fetch('/api/contacts', {
+async function saveQuestion(question: any) {
+    // post process in api/questions file
+    const response = await fetch('/api/questions', {
         method: 'POST',
-        body: JSON.stringify(contact)
+        body: JSON.stringify(question)
     });
 
     if (!response.ok) {
@@ -26,7 +27,7 @@ async function saveContact(contact: any) {
 }
 
 export default function Ask() {
-    const { data, status } = useSession();
+    const { status } = useSession();
     const [info, setInfo] = useState<FormProps>({
         ask: '',
         answer: ''
@@ -37,7 +38,7 @@ export default function Ask() {
         event.preventDefault();
 
         try {
-            await saveContact(info);
+            await saveQuestion(info);
             router.push('/list');
         } catch(error) {
             console.log(error)

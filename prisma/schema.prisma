@@ -10,7 +10,7 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Contact {
+model Question {
   id String @id @default(cuid())
   ask String
   answer String 

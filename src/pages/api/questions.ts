@@ -9,11 +9,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         });
     }
 
-    const contactData = JSON.parse(req.body);
+    const questionData = JSON.parse(req.body);
 
-    const savedContact = await prisma.contact.create({
-        data: contactData
+    const savedQuesstion = await prisma.question.create({
+        data: questionData
     });
 
-    res.json(savedContact);
+    res.json(savedQuesstion);
 }
