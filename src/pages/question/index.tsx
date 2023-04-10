@@ -72,6 +72,7 @@ export default function Ask() {
                                     setInfo({ ...info, ask: target.value })
                                 }
                                 className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                                required
                                 placeholder="Write"
                             />
                         </div>
@@ -92,6 +93,7 @@ export default function Ask() {
                                     setInfo({ ...info, answer: target.value })
                                 }
                                 className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                                required
                                 placeholder="Write"
                                 rows={6}
                             >

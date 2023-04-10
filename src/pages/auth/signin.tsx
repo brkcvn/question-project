@@ -9,6 +9,7 @@ import { useSession, signIn } from "next-auth/react";
 import { useRouter } from 'next/router';
 //components
 import ExternalAuth from '../../components/_externalAuth';
+import List from "../list";
 
 interface Props {
     email: string,
@@ -43,6 +44,9 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
 
     if (status === 'authenticated') {
         router.push('/list');
+        return (
+            <List />
+        )
     } else {
         return (
             <div className="w-96 max-w-md m-auto my-12 p-8 border shadow-lg space-y-6 sm:w-auto">
@@ -87,10 +91,6 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
                         >
                             Sign in
                         </button>
-
-                        <span className="text-gray-700">Don't have an account ?
-                            <Link href="signup">Sign Up</Link>
-                        </span>
                     </form>
                 </div>
 
