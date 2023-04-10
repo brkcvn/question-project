@@ -1,23 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface ActionState {
-    ask: string,
-    answer: string
+    question: [
+        {
+            ask: string,
+            answer: string
+        }
+    ]
 }
 
 const initialState: ActionState = {
-    ask: 'First ask',
-    answer: 'First answer'
+    question: [
+        {
+            ask: 'First ask',
+            answer: 'First answer'
+        }
+    ]
 }
 
 export const createData = createSlice({
     name: 'data',
     initialState,
     reducers: {
-       
+        submitQuestion: (state:any, action) => {
+            state.question.push(action.payload);
+        }
     },
 });
 
-// export const { Submit, percantageActions, inpuChangeAction } = createData.actions;
+export const { submitQuestion } = createData.actions;
 
 export default createData.reducer;
