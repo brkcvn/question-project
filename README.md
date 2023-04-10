@@ -9,7 +9,7 @@
 - TypeScript used for type control
 - NextAuth used for authenticated process
 - Tailwind CSS used for styling
-- Redux toolkit used for state management
+- Prisma used for SQL management
 
 # Getting Started
 
