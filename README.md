@@ -17,7 +17,7 @@
 ```bash
 npm install npm@latest -g
 ```
-
+You can manage prisma
 ```bash
 npx prisma init
 npx prisma migrate dev
