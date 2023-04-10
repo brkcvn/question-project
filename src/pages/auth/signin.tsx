@@ -45,7 +45,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
         router.push('/list');
     } else {
         return (
-            <div className="max-w-md m-auto my-12 p-8 border shadow-lg space-y-6">
+            <div className="w-96 max-w-md m-auto my-12 p-8 border shadow-lg space-y-6 sm:w-auto">
                 <div className="space-y-3 my-3">
                     <h1 className="text-lg font-bold text-center">Sign In</h1>
 

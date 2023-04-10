@@ -43,7 +43,7 @@ export default function List({ initialContacts }: any) {
         return (
             <div>
                 <Header />
-                <div className="max-w-2xl m-auto space-y-3">
+                <div className="max-w-2xl m-auto px-4 space-y-3">
                     {items}
                 </div>
             </div>

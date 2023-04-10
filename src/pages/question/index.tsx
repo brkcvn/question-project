@@ -50,7 +50,7 @@ export default function Ask() {
             <div className="space-y-8">
                 <Header />
 
-                <div className='max-w-2xl m-auto'>
+                <div className='max-w-2xl px-4 m-auto'>
                     <form
                         action="#"
                         method="POST"
