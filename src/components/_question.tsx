@@ -7,8 +7,8 @@ import { useAppDispatch } from '../hooks';
 import { submitQuestion } from '../features/question';
 
 interface FormProps {
-    ask: string,
-    answer: string
+    ask: string|number,
+    answer: string|number
 }
 
 export default function Question() {
