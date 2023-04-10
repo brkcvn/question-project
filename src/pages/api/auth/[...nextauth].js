@@ -22,12 +22,17 @@ export const authOptions = {
                     placeholder: 'password'
                 }
             },
-            async authorize(credentials, req) {
-                const user = {
-                    
+            authorize (credentials, req) {
+                if (credentials.email === 'burakcivan22@gmail.com' && credentials.password === '1') {
+                    return {
+                        id: 1,
+                        name: 'Burak',
+                        email: 'burakcivan32@gmail.com'
+                    }
                 }
-                return user
-              },
+
+                return null;
+            }
         })
     ],
     // pages: {

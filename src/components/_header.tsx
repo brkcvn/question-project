@@ -8,7 +8,7 @@ export default function Header() {
         return (
             <div className="container flex items-center justify-between">
                 <div className="w-12 h-8 flex justify-center bg-gray-500 rounded-lg shadow-lg">
-                    <Link href="/question">
+                    <Link href="/list ">
                         <span className="material-symbols-outlined text-white mt-1">
                             account_circle
                         </span>

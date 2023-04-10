@@ -7,15 +7,11 @@ export default function Ask() {
 
     if (status === 'authenticated') {
         return (
-            <div className="max-w-2xl m-auto">
-                <Question />
-            </div>
+            <Question />
         )
     } else {
         return (
-            <div className="max-w-2xl m-auto">
-                <Main />
-            </div>
+            <Main />
         )
     }
 }

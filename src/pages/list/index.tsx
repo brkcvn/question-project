@@ -18,15 +18,11 @@ export default function List({ state }: ActionProps) {
 
     if (status === 'authenticated') {
         return (
-            <div className="max-w-2xl m-auto">
-                <Lists {...actionProps} />
-            </div>
+            <Lists {...actionProps} />
         )
     } else {
         return (
-            <div className="max-w-2xl m-auto">
-                <Main />
-            </div>
+            <Main />
         )
     }
 }

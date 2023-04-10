@@ -7,15 +7,11 @@ export default function Home() {
 
     if (status === 'authenticated') {
         return (
-            <div className="max-w-2xl m-auto">
-                <Lists />
-            </div>
+            <Lists />
         )
     } else {
         return (
-            <div className="max-w-2xl m-auto">
-                <Main />
-            </div>
+            <Main />
         )
     }
 }

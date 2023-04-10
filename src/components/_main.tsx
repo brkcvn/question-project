@@ -5,7 +5,8 @@ export default function Main() {
     return (
         <div>
             <Header />
-            <div className="space-y-3">
+
+            <div className="max-w-2xl m-auto space-y-3">
                 <span className="text-lg font-bold">Hello Guest User</span>
                 <p>In this app you can ask a question or answer a question from random person. <br /> You can also start asking questions by sigingig in</p>
                 <Link

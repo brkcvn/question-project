@@ -6,12 +6,14 @@ export default function Lists(props: any) {
         <div>
             <Header />
 
-            <Link
-                href="question"
-                className="w-full flex items-center justify-center rounded-lg py-4 px-4 border-2 border-gray-700 cursor-pointer"
-            >
-                First Ask
-            </Link>
+            <div className='max-w-2xl m-auto'>
+                <Link
+                    href="question"
+                    className="w-full flex items-center justify-center rounded-lg py-4 px-4 border-2 border-gray-700 cursor-pointer"
+                >
+                    First Ask
+                </Link>
+            </div>
         </div>
     )
 }

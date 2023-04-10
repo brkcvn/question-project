@@ -1,12 +1,12 @@
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/react";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Link from 'next/link';
 import ExternalAuth from '../../components/_externalAuth';
 import React from "react";
-import { useRouter } from 'next/router'
-
+import { useRouter } from 'next/router';
+import Lists from "@/components/_lists";
 
 interface Props {
     email: string,
@@ -14,12 +14,12 @@ interface Props {
 }
 
 export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    const { data: session, status } = useSession();
+    const router = useRouter();
     const [info, setInfo] = useState<Props>({
         email: '',
         password: ''
     });
-
-    const router = useRouter();
 
     async function handleSubmit(event: any) {
         event.preventDefault();
@@ -34,64 +34,75 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
             if (res?.status === 200) {
                 router.push({
                     pathname: '/list'
-                })
+                });
             }
         }
     }
-    return (
-        <div className="max-w-md m-auto my-12 p-8 border shadow-lg space-y-6">
-            <div className="space-y-3 my-3">
-                <h1 className="text-lg font-bold text-center">Sign In</h1>
 
-                <form
-                    method="post"
-                    action="/api/auth/callback/credentials"
-                    className="space-y-6"
-                    onSubmit={handleSubmit}
-                >
-                    <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+    if (status === 'authenticated') {
+        router.push({
+            pathname: '/list'
+        });
+        
+        return (
+            <Lists />
+        )
+    } else {
+        return (
+            <div className="max-w-md m-auto my-12 p-8 border shadow-lg space-y-6">
+                <div className="space-y-3 my-3">
+                    <h1 className="text-lg font-bold text-center">Sign In</h1>
 
-                    <input
-                        name="email"
-                        type="text"
-                        id="email"
-                        onChange={({ target }) =>
-                            setInfo({ ...info, email: target.value })
-                        }
-                        className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
-                        required
-                        placeholder="email"
-                    />
-
-                    <input
-                        name="password"
-                        id="password"
-                        type="password"
-                        onChange={({ target }) =>
-                            setInfo({ ...info, password: target.value })
-                        }
-                        className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
-                        required
-                        placeholder="password"
-                    />
-
-                    <button
-                        type="submit"
-                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700 mb-5"
+                    <form
+                        method="post"
+                        action="/api/auth/callback/credentials"
+                        className="space-y-6"
+                        onSubmit={handleSubmit}
                     >
-                        Sign in
-                    </button>
+                        <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
-                    <span className="text-gray-700">Don't have an account ?
-                        <Link href="signup">Sign Up</Link>
-                    </span>
-                </form>
+                        <input
+                            name="email"
+                            type="text"
+                            id="email"
+                            onChange={({ target }) =>
+                                setInfo({ ...info, email: target.value })
+                            }
+                            className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                            required
+                            placeholder="email"
+                        />
+
+                        <input
+                            name="password"
+                            id="password"
+                            type="password"
+                            onChange={({ target }) =>
+                                setInfo({ ...info, password: target.value })
+                            }
+                            className="w-full bg-gray-700 text-gray-300 py-3 px-4 rounded-lg"
+                            required
+                            placeholder="password"
+                        />
+
+                        <button
+                            type="submit"
+                            className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700 mb-5"
+                        >
+                            Sign in
+                        </button>
+
+                        <span className="text-gray-700">Don't have an account ?
+                            <Link href="signup">Sign Up</Link>
+                        </span>
+                    </form>
+                </div>
+
+                <ExternalAuth />
             </div>
 
-            <ExternalAuth />
-        </div>
-
-    )
+        )
+    }
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
