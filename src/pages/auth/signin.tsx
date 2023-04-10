@@ -9,7 +9,7 @@ import { useSession, signIn } from "next-auth/react";
 import { useRouter } from 'next/router';
 //components
 import ExternalAuth from '../../components/_externalAuth';
-import Lists from "@/components/_lists";
+import Main from "@/components/_main";
 
 interface Props {
     email: string,
@@ -48,7 +48,7 @@ export default function SignIn({ csrfToken }: InferGetServerSidePropsType<typeof
         });
         
         return (
-            <Lists />
+            <Main />
         )
     } else {
         return (

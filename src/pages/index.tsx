@@ -9,7 +9,8 @@ export default function Home() {
 
     if (status === 'authenticated') {
         return (
-            <Lists />
+            // <Lists />
+            <Main />
         )
     } else {
         return (
