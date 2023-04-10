@@ -14,10 +14,11 @@ export default function Lists(state?: any) {
         list = state.action.question.map(function (item: any, i: Key | null | undefined) {
             return (
                 <Link
+                    key={i}
                     href="question"
                     className="w-full flex items-center justify-center rounded-lg py-4 px-4 border-2 border-gray-700 cursor-pointer"
                 >
-                    <span key={i}>{item.ask}</span>
+                    <span>{item.ask}</span>
                 </Link>
             )
         });

@@ -9,7 +9,7 @@ export default function Header() {
         return (
             <div className="container flex items-center justify-between">
                 <div className="w-12 h-8 flex justify-center bg-gray-500 rounded-lg shadow-lg">
-                    <Link href="/list ">
+                    <Link href="/list">
                         <span className="material-symbols-outlined text-white mt-1">
                             account_circle
                         </span>
@@ -17,7 +17,13 @@ export default function Header() {
 
                 </div>
 
-                <h1 className="text-2xl text-center font-bold my-3">Logo</h1>
+                <Link href="/question">
+                    <img
+                        src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5be01d787b5e5b0001ebb6bb/0x0.png"
+                        className="w-24 h-24 m-auto"
+                        alt="Logo"
+                    />
+                </Link>
 
                 <div className="w-12 h-8 flex justify-center bg-gray-500 rounded-lg shadow-lg">
                     <button onClick={() => signOut()}>
@@ -30,7 +36,11 @@ export default function Header() {
         )
     } else {
         return (
-            <h1 className="text-2xl text-center font-bold my-3">Logo</h1>
+            <img
+                src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5be01d787b5e5b0001ebb6bb/0x0.png"
+                className="w-24 h-24 m-auto"
+                alt="Logo"
+            />
         )
     }
 }
