@@ -1,8 +1,10 @@
-import Header from './_header';
-import { useAppDispatch } from '../hooks';
-import { submitQuestion } from '../features/question';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+//components
+import Header from './_header';
+//redux toolkit
+import { useAppDispatch } from '../hooks';
+import { submitQuestion } from '../features/question';
 
 interface FormProps {
     ask: string,
@@ -36,7 +38,13 @@ export default function Question() {
                     className='space-y-3'
                 >
                     <div className="block">
-                        <label htmlFor="ask" className="text-gray-500 font-bold">Ask a question</label>
+                        <label
+                            htmlFor="ask"
+                            className="text-gray-500 font-bold"
+                        >
+                            Ask a question
+                        </label>
+
                         <input
                             name="ask"
                             id="ask"
@@ -49,7 +57,13 @@ export default function Question() {
                     </div>
 
                     <div className="block space-y-3">
-                        <label htmlFor="answer" className="text-gray-500 font-bold">Answer a question</label>
+                        <label
+                            htmlFor="answer"
+                            className="text-gray-500 font-bold"
+                        >
+                            Answer a question
+                        </label>
+
                         <div className="w-full rounded-lg py-4 px-4 border-dashed border-2 border-gray-700"></div>
                         <textarea
                             name="answer"
@@ -64,7 +78,12 @@ export default function Question() {
                         </textarea>
                     </div>
 
-                    <button className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700">Proceed !</button>
+                    <button
+                        type='submit'
+                        className="w-full py-2 px-4 rounded-lg bg-gray-500 text-white hover:bg-gray-700"
+                    >
+                        Proceed !
+                    </button>
                 </form>
             </div>
         </div>

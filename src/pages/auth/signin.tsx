@@ -1,11 +1,14 @@
+import React, { useState } from "react";
+import Link from 'next/link';
+
+//next auth
 import type { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/react";
-import { useState } from "react";
 import { useSession, signIn } from "next-auth/react";
-import Link from 'next/link';
-import ExternalAuth from '../../components/_externalAuth';
-import React from "react";
+//next router
 import { useRouter } from 'next/router';
+//components
+import ExternalAuth from '../../components/_externalAuth';
 import Lists from "@/components/_lists";
 
 interface Props {

@@ -1,8 +1,7 @@
-import { useSession, signIn } from "next-auth/react";
+//next auth
+import { signIn } from "next-auth/react";
 
-export default function ExternalAuth() {
-    const { data: session } = useSession();
-    
+export default function ExternalAuth() {    
     return (
         <div>
             <hr></hr>

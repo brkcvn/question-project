@@ -1,4 +1,5 @@
 import Link from 'next/link';
+//components
 import Header from './_header';
 
 export default function Main() {

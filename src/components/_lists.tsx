@@ -1,6 +1,8 @@
-import Link from 'next/link';
-import Header from './_header';
 import { Key } from 'react';
+import Link from 'next/link';
+//components
+import Header from './_header';
+// redux toolkit
 import { useAppSelector } from '../hooks';
 
 export default function Lists(state?: any) {
